@@ -1,11 +1,14 @@
+import debounce from './debounce.js';
+
 export default class ScrollAnima {
   constructor(sections) {
     this.sections = document.querySelectorAll(sections);
     this.windowMiddle = window.innerHeight * 0.6;
 
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
   }
 
+  // Take distance of each item in relation on the site top
   getDistance() {
     this.distance = [...this.sections].map((section) => {
       const offset = section.offsetTop;

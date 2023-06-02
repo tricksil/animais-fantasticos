@@ -15,7 +15,7 @@ export default class DropdownMenu {
 
   // active the dropdownmenu and add the function than objserve outside click
   activeDropdownMenu(event) {
-    event.preventDefault();
+    if (event.cancelable) event.preventDefault();
     const element = event.currentTarget;
     element.classList.add(this.activeClass);
     outsideClick(element, this.events, () => {

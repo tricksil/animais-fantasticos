@@ -30,5 +30,7 @@ export default class MenuMobile {
         this.menuButton.addEventListener(userEvent, this.openMenu)
       );
     }
+
+    return this;
   }
 }
